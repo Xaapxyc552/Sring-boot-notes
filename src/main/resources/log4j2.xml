@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30" status="info" strict="true"
+>
+    <Properties>
+        <Property name="InitializingLogsFile">logs/initializingLogs.log</Property>
+        <Property name="CommonLogsFile">logs/commonLogs.log</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console">
+            <Layout type="PatternLayout">
+                <Pattern>%d{HH:mm:ss.SSS} | %-5p | %-30c{1} | %m%n</Pattern>
+            </Layout>
+        </Console>
+        <Appender type="File" name="InitializationAppender" fileName="${InitializingLogsFile}">
+            <Layout type="PatternLayout">
+                <Pattern>%d{HH:mm:ss.SSS} | %-5p | %-30c{1} | %m%n</Pattern>
+            </Layout>
+        </Appender><Appender type="File" name="CommonAppender" fileName="${CommonLogsFile}">
+        <Layout type="PatternLayout">
+            <Pattern>%d{HH:mm:ss.SSS} | %-5p | %-30c{1} | %m%n</Pattern>
+        </Layout>
+    </Appender>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.skidchenko" level="info" additivity="false">
+            <AppenderRef ref="CommonAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="com.skidchenko.Configs" level="info" additivity="false">
+            <AppenderRef ref="InitializationAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="com.skidchenko.DAOLayer.Config" level="info" additivity="false">
+            <AppenderRef ref="InitializationAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Root level="off" additivity="false">
+        </Root>
+    </Loggers>
+
+</Configuration>
