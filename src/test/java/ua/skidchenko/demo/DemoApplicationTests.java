@@ -8,6 +8,9 @@ class DemoApplicationTests {
 
     @Test
     void contextLoads() {
+        String asd = "ddaas";
+        String asd1 = "ddaas";
+        String asd2 = "asd";
     }
 
 }
